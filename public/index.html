@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moto On the Web</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open%20Sans">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+<body class="grey lighten-5">
+  <div id="gConnect">
+    Please use the 'Sign In' button to start.
+    <div class="fixed-action-btn" style="top: 0px;">
+      <button class="g-signin"
+          data-scope="https://www.googleapis.com/auth/plus.login"
+          data-requestvisibleactions="http://schemas.google.com/AddActivity"
+          data-clientId="1077894546217-j2nqu8afoiigedpsit0ge88niovg8kbs.apps.googleusercontent.com"
+          data-callback="onSignInCallback"
+          data-theme="dark"
+          data-cookiepolicy="single_host_origin">
+      </button>
+    </div>
+  </div>
+  <div id="authOps" style="display:none">
+    <div class="fixed-action-btn" style="top: 0px;">
+      <button class="btn waves-effect waves-light red" id="disconnect">Logout</button>
+    </div>
+
+    <blockquote>
+      <div id="userWelcome"></div>
+      <div id="visiblePeople"></div>
+    </blockquote>
+    <div id="profile"></div>
+
+    <div style="width: 80%">
+      <table id="visiblePplTbl" class="hoverable">
+        <thead>
+          <tr>
+              <th data-field="name">Friend Name</th>
+              <th data-field="avatar">Avatar</th>
+              <th data-field="calling-options">Hangout</th>
+              <th data-field="calling-options">Phone Call</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="authResult"></div>
+  </div>
+  <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="js/gPlusLogin.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+</html>
