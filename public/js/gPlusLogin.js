@@ -23,7 +23,6 @@ return {
         $('#authOps').hide('slow');
         $('#gConnect').show();
       }
-      console.log('authResult', authResult);
     });
   },
 
