@@ -70,28 +70,31 @@ return {
       var userIdx = 1;
       for (var personIndex in people.items) {
         person = people.items[personIndex];
-        console.log("******* => " + JSON.stringify(person));
 
-        var hangoutScriptTxt = "gapi.hangout.render('placeholder-div0-" + userIdx + "'," +
+        var hangoutScriptTxt = "gapi.hangout.render('d0-" + userIdx + "'," +
           " { " +
           "'render': 'createhangout', 'hangout_type': 'normal', 'widget_size': 72," +
           "'invites': [{ 'id' : '" + person.id + "' , 'invite_type' : 'PROFILE' }]" +
           " } );";
 
-        var telephoneScriptTxt = "gapi.hangout.render('placeholder-div1-" + userIdx + "'," +
+        var telephoneScriptTxt = "gapi.hangout.render('d1-" + userIdx + "'," +
           " { " +
           "'render': 'createhangout', 'hangout_type': 'normal', 'widget_size': 72," +
           "'invites': [{ 'id' : '4089405294' , 'invite_type' : 'PHONE' }]" +
           " } );";
 
+        var skypeCallTxt = 'Skype.ui({ name : "call", element : "SkypeButton_Call_' + userIdx + '",' +
+          ' participants : ["4089405294"], imageSize: 32 });';
+
         $('#visiblePplTbl > tbody:last').append('<tr>' +
           '<td><a href="'+ person.url +'">'+ person.displayName + '</a></td>' +
           '<td><img src="' + person.image.url + '"></td>' +
-          '<td><div id="placeholder-div0-'+ userIdx +'"></div></td>' +
-          '<td><div id="placeholder-div1-'+ userIdx +'"></div></td>' +
+          '<td><div id="d0-'+ userIdx +'"></div></td>' +
+          '<td><div id="d1-'+ userIdx +'"></div></td>' +
+          '<td><div id="SkypeButton_Call_'+ userIdx +'"></div></td>' +
           '</tr>');
 
-        $('<script>').attr('type','text/javascript').text(hangoutScriptTxt + telephoneScriptTxt).appendTo('head');
+        $('<script>').attr('type','text/javascript').text(hangoutScriptTxt + telephoneScriptTxt + skypeCallTxt).appendTo('head');
 
         userIdx++;
       }
